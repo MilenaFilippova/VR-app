@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+        <script src="https://unpkg.com/aframe-event-set-component@3.0.3/dist/aframe-event-set-component.min.js"></script>
+      <script src="https://unpkg.com/aframe-star-system-component@1.0.0/index.js"></script> 
+      <!-- let's add the animation and orbit controls components -->
+        <script src="https://unpkg.com/aframe-animation-component@^5.1.2/dist/aframe-animation-component.min.js"></script>
+        <script src="https://unpkg.com/aframe-orbit-controls@1.2.0/dist/aframe-orbit-controls.min.js"></script>
+  </head>
+    <body>
+        <a-scene>
+          
+           <!-- This is a "mixin" we can apply to planets to make them
+            rotate-->
+            <a-mixin id="rotation" animation="property: rotation; loop: true; from:  0 0 0; to: 0 360 0; dur: 20000; easing: linear;"></a-mixin>
+            
+          <a-assets>
+              <img id="sky" src="https://c1.staticflickr.com/5/4248/34705881091_37b5cf2d28_o.jpg" alt="" >
+              <img id="skyTexture" src="https://aduvan.ru/wp-content/uploads/photo-gallery/sky-texturs/sky-texture_(13).jpg">
+              <img id="mramor" src="https://st2.depositphotos.com/4798621/8140/i/950/depositphotos_81400896-stock-photo-beautiful-abstract-of-texture-marble.jpg">
+              <img id="earth" src=" https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSb75NC3uWkVRED5ptEu4y4ASRo6mtsePpvKQ&usqp=CAU">
+              <img id="cloud" src="https://aduvan.ru/wp-content/uploads/photo-gallery/paper-texturs/paper-texture_(4).jpg" >
+              <img id="green" src="https://avatanplus.com/files/resources/mid/5791f7ff996311561230be8c.jpg">
+          </a-assets>
+          
+          <!-- Give some basic lighting here.
+            <a-entity id="basic-light" light="type: ambient; color: #BBB"></a-entity>-->
+          
+          <a-sky src="#sky"></a-sky>
+            
+            <!--<a-ring position="0 0 -10"  src="#image" radius="3">-->
+          <!--где почему-то не работает ссылка на структуры из asset вставлена прямая ссылка на текстуру-->
+              <a-torus-knot radius-tabular="3" radius="2" p="2" q="5" position="17 30 -15" src="https://aduvan.ru/wp-content/uploads/photo-gallery/paper-texturs/paper-texture_(4).jpg"
+                  animation__mouseenter="property: components.material.material.color; type: color; to: yellow; startEvents: mouseenter; dur: 800"
+                  animation__mouseleave="property: components.material.material.color; type: color; to: lightblue; startEvents: mouseleave; dur: 800">
+               </a-torus-knot>
+        
+              <a-dodecahedron position="-12 9 -10" src="#green" radius="1.3"  rotation="30" height="2"
+                  animation__mouseenter="property: components.material.material.color; type: color; to: yellow; startEvents: mouseenter; dur: 800"
+                  animation__mouseleave="property: components.material.material.color; type: color; to: green; startEvents: mouseleave; dur: 800"> 
+              </a-dodecahedron>
+          
+              <a-triangle  rotation="20 0 0" position="-0.5 0 0" src="#earth" vertex-a="0 -5 -4" 
+                  animation__mouseenter="property: components.material.material.color; type: color; to: gray; startEvents: mouseenter; dur: 800"
+                  animation__mouseleave="property: components.material.material.color; type: color; to: black; startEvents: mouseleave; dur: 800">           
+              </a-triangle>
+    
+              <a-curvedimage position="-7 -1 0"  src="#mramor" radius="10" height="5" rotation="0 -65 0" theta-length="60"
+                  animation__mouseenter="property: components.material.material.color; type: color; to: magenta; startEvents: mouseenter; dur: 800"
+                  animation__mouseleave="property: components.material.material.color; type: color; to: gray; startEvents: mouseleave; dur: 800">
+              </a-curvedimage>
+          
+          <a-camera look_controls>
+                <a-cursor></a-cursor>
+            </a-camera>
+        </a-scene>
+    </body>
+</html>
