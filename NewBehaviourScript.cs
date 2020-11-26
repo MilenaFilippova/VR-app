@@ -36,11 +36,9 @@ public class NewBehaviourScript: MonoBehaviour {
     // Update is called once per frame
     void Update () 
     {
-        //transform.Rotate(0, Input.GetAxis("Horizontal") * speedRotation, 0);
         AngleResult = GetAngle( start,end);
         Debug.Log($"{AngleResult}; \r\n"); 
         transform.Rotate(0, (float)AngleResult  * speedRotation, 0);
-        
         if (transform.position != end)
         {
             transform.position = Vector3.Lerp(transform.position, end, step);
