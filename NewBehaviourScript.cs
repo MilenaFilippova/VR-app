@@ -28,7 +28,6 @@ public class NewBehaviourScript: MonoBehaviour {
     // Use this for initialization
     void Start () {
         characterController = GetComponent<CharacterController>();
-        // end = new Vector3(Random.Range(-6.0f, 6.0f), 0, Random.Range(-4.0f, 4.0f));
         Vector3 end = new Vector3(UnityEngine.Random.Range(-6.0f, 6.0f), 0, UnityEngine.Random.Range(-4.0f, 4.0f));
         Vector3 start = transform.position;
     }
